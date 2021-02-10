@@ -1,6 +1,11 @@
 # Angular_RestAPI_AngularMaterial
  This is an app which has utilized most of the features of an Angular App along with RestAPI and Angular Material too
 
+## Dependencies Used:
+Install the following dependencies before running the app:
+
+ng add @angular/material
+
 ## Screenshots
 
 ![HomePage](https://github.com/mubashir-mindfiresol/Angular_RestAPI/blob/main/images/Screenshot%20(1).png)
