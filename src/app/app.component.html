@@ -1,0 +1,19 @@
+<div class="container">
+  <mat-toolbar color="primary">
+    <span>Angular App using RestAPI + Angular Material</span>
+    <span class="spacer"></span>
+    <button mat-icon-button routerLink="/homepage" routerLinkActive="active">
+      <mat-icon>home</mat-icon> Home
+    </button>
+    <button mat-icon-button routerLink="/user" routerLinkActive="active">
+      <mat-icon>face</mat-icon> Users
+    </button>
+    <button mat-icon-button routerLink="/comment" routerLinkActive="active">
+      <mat-icon>comment</mat-icon> Comments
+    </button>
+    <button mat-icon-button routerLink="/todo" routerLinkActive="active">
+      <mat-icon>list</mat-icon> To-Dos
+    </button>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</div>
