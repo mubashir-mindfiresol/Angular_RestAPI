@@ -1,6 +1,7 @@
-<div class="text">
-<p><strong>Comments:</strong></p>
-<ul *ngFor="let comment of comments"> 
+<main>
+        <h1>Comments</h1>
+
+<ul class="gradient-list" *ngFor="let comment of comments"> 
         <li>{{comment.body}}</li>
 </ul>
-</div>
+</main>

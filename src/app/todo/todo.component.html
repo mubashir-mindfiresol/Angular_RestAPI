@@ -1,14 +1,31 @@
-<div class="text">
-<table>
-  <tr>
-    <th>No</th>
-    <th>Title</th>
-    <th>Status</th>
-  </tr>
-  <tr *ngFor="let todo of todos">
-    <td>{{todo.id}}</td>
-    <td>{{todo.title}}</td>
-    <td>{{todo.completed}}</td>
-  </tr>
-</table>
-</div>
+<body>
+  <section>
+    <!--for demo wrap-->
+    <h1>To-do</h1>
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Title</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="tbl-content">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          <tr *ngFor="let todo of todos">
+            <td>{{todo.id}}</td>
+            <td>{{todo.title}}</td>
+            <td>{{todo.completed}}</td>
+          </tr></tbody>
+        </table>
+      </div>
+    </section>
+    <div class="made-with-love">
+    
+    </div>
+    
+    </body>
