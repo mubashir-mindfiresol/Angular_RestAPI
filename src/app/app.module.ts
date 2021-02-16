@@ -14,12 +14,17 @@ import { HttpClientModule } from '@angular/common/http';
 import {CommentsService} from './comments.service';
 import {TodosService} from './todos.service';
 import {UsersService} from './users.service';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,10 @@ import {UsersService} from './users.service';
     MatIconModule,
     MatButtonModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [CommentsService,TodosService,UsersService],
   bootstrap: [AppComponent]
