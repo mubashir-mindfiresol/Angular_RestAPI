@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { IComments } from './comments';
 import { Observable } from 'rxjs';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +17,7 @@ export class CommentsService {
     return this.http.get<IComments[]>(this._url);
   }
 
+  errorHandler(error: HttpErrorResponse){
+    return throwError(new Error(error.message || "Server Error"));
+  }
 }
