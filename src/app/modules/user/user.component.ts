@@ -9,12 +9,13 @@ import {UsersService} from './../../services/users/users.service';
 })
 export class UserComponent implements OnInit {
 
-  public users = [];
+  public users = []; //Store the user names fetched from API
 
   constructor(private _usersService: UsersService) {
      
    }
 
+  //Initialization Life-Cycle Hook
   ngOnInit() {
    this._usersService.getUsers().subscribe( data => this.users = data);
   }

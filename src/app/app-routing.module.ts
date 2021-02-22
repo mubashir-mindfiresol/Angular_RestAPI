@@ -21,6 +21,8 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
+
+//Any Module getting added to the Route should be inserted here
 export const routingComponents=[
   HomepageComponent,
   UserComponent,

@@ -8,12 +8,13 @@ import {CommentsService} from './../../services/comments/comments.service';
 })
 export class CommentComponent implements OnInit {
 
-  public comments = [];
+  public comments = []; //Store the comments after making API Call
 
   constructor(private _commentsService: CommentsService) {
      
    }
 
+  //Initialization Life-Cycle Hook
   ngOnInit() {
    this._commentsService.getComments().subscribe( data => this.comments = data);
   }

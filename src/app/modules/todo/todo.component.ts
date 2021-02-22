@@ -8,12 +8,13 @@ import {TodosService} from './../../services/todos/todos.service';
 })
 export class TodoComponent implements OnInit {
 
-  public todos = [];
+  public todos = []; //Store the To-Dos list in an array after fetching from API
   constructor(private _todosService: TodosService) {
      
    }
 
-  ngOnInit() {
+  //Initialization Life-Cycle Hook
+ngOnInit() {
    this._todosService.getTodos().subscribe( data => this.todos = data);
   }
 }

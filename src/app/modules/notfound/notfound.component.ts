@@ -9,7 +9,8 @@ export class NotfoundComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+   //Initialization Life-Cycle Hook
+   ngOnInit(): void {
   }
 
 }
