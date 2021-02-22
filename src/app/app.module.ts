@@ -11,9 +11,9 @@ import {MatTableModule} from '@angular/material/table';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import {CommentsService} from './comments.service';
-import {TodosService} from './todos.service';
-import {UsersService} from './users.service';
+import {CommentsService} from './services/comments/comments.service';
+import {TodosService} from './services/todos/todos.service';
+import {UsersService} from './services/users/users.service';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
