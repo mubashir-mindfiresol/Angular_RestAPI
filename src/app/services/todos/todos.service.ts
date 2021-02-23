@@ -3,13 +3,14 @@ import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { ITodos } from './todos';
 import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
+import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodosService {
 
-  private _url : string = "http://jsonplaceholder.typicode.com/todos";
+  private _url : string = environment.todos_url;
 
   constructor(private http: HttpClient) { }
 
