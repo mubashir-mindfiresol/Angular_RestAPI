@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {CommentsService} from './../../services/comments/comments.service';
-import { Subject } from "rxjs";
-import { takeUntil } from "rxjs/operators";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.scss']
 })
-export class CommentComponent implements OnInit {
+export class CommentComponent implements OnInit, OnDestroy {
 
   public comments = []; //Store the comments after making API Call
-
-  componentDestroyed$: Subject<boolean> = new Subject()
+  
+  subscription: Subscription;
 
   constructor(private _commentsService: CommentsService) {
      
@@ -20,12 +19,11 @@ export class CommentComponent implements OnInit {
 
   //Initialization Life-Cycle Hook
   ngOnInit() {
-   this._commentsService.getComments().pipe(takeUntil(this.componentDestroyed$)).subscribe( data => this.comments = data);
+   this.subscription = this._commentsService.getComments().subscribe( data => this.comments = data);
   }
 
-  //Destroy the Instance
   ngOnDestroy() {
-    this.componentDestroyed$.next(true)
-    this.componentDestroyed$.complete()
-  }
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+}
 }

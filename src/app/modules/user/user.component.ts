@@ -1,18 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {UsersService} from './../../services/users/users.service';
-import { Subject } from "rxjs";
-import { takeUntil } from "rxjs/operators";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
 
   public users = []; //Store the user names fetched from API
-  
-  componentDestroyed$: Subject<boolean> = new Subject()
+  subscription: Subscription;
 
   constructor(private _usersService: UsersService) {
      
@@ -20,12 +18,11 @@ export class UserComponent implements OnInit {
 
   //Initialization Life-Cycle Hook
   ngOnInit() {
-   this._usersService.getUsers().pipe(takeUntil(this.componentDestroyed$)).subscribe( data => this.users = data);
+    this.subscription = this._usersService.getUsers().subscribe( data => this.users = data);
   }
   
-  //Destroy the Instance
   ngOnDestroy() {
-    this.componentDestroyed$.next(true)
-    this.componentDestroyed$.complete()
-  }
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+}
 }

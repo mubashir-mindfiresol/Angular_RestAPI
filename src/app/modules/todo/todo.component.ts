@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import {TodosService} from './../../services/todos/todos.service';
-import { Subject } from "rxjs";
-import { takeUntil } from "rxjs/operators";
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss']
 })
-export class TodoComponent implements OnInit {
+export class TodoComponent implements OnInit, OnDestroy {
 
   public todos = []; //Store the To-Dos list in an array after fetching from API
 
-  componentDestroyed$: Subject<boolean> = new Subject()
+  subscription: Subscription;
 
   constructor(private _todosService: TodosService) {
      
@@ -20,12 +20,12 @@ export class TodoComponent implements OnInit {
 
   //Initialization Life-Cycle Hook
   ngOnInit() {
-    this._todosService.getTodos().subscribe( data => this.todos = data);
+    this.subscription = this._todosService.getTodos().subscribe( data => this.todos = data);
   }
 
-  //Destroy the Instance
+ 
   ngOnDestroy() {
-    this.componentDestroyed$.next(true)
-    this.componentDestroyed$.complete()
-  }
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+}
 }
