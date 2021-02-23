@@ -3,14 +3,14 @@ import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { IComments } from './comments';
 import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
-import { constant } from 'src/app/constants';
+import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommentsService {
 
-  private _url : string = constant.comments_url;
+  private _url : string = environment.comments_url;
 
   constructor(private http: HttpClient) { }
 
