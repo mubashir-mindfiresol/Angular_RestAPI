@@ -3,14 +3,14 @@ import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { IUsers } from './users';
 import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
-import { environment } from './../../../environments/environment';
+import { constant } from 'src/app/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  private _url : string = environment.users_url;
+  private _url : string = constant.users_url;
 
   constructor(private http: HttpClient) { }
 
