@@ -1,10 +1,9 @@
 <body>
-<section>
-  <!--for demo wrap-->
   <h1>Users</h1>
-  <div class="tbl-header">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <thead>
+  <section>  
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
           <tr>
             <th>ID</th>
             <th>Name</th>
@@ -18,10 +17,7 @@
       <table cellpadding="0" cellspacing="0" border="0">
         <tbody>
           <tr *ngFor="let user of users">
-            <td>{{user.id}}</td>
-            <td>{{user.name}}</td>
-            <td>{{user.username}}</td>
-            <td>{{user.email}}</td>
+            <app-display-user [user]="user"></app-display-user>
           </tr>
         </tbody>
       </table>
