@@ -18,13 +18,15 @@ import { MainNavComponent } from './modules/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { DisplayCommentComponent } from './modules/display-comment/display-comment.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    MainNavComponent
+    MainNavComponent,
+    DisplayCommentComponent
   ],
   imports: [
     BrowserModule,
