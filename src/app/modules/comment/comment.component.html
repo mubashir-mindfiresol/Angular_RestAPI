@@ -1,6 +1,7 @@
 <main>
         <h1>Comments</h1>
         <div *ngFor="let comment of comments">
-                <app-display-comment [comment]="comment"></app-display-comment>
+                <!--Sending data from Parent to Child-->
+                <app-display-comment [comment]="comment"></app-display-comment> 
         </div>
 </main>
